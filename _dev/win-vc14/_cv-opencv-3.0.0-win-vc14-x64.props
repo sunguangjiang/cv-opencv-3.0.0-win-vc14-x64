@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+
+  <ImportGroup Label="PropertySheets" />
+
+
+
+  <PropertyGroup Label="UserMacros" />
+
+
+
+  <PropertyGroup>
+    <CvOpencv300WinVc10X64Imported>true</CvOpencv300WinVc10X64Imported>
+  </PropertyGroup>
+
+
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <Link>
+      <AdditionalDependencies>opencv_calib3d300d.lib;opencv_core300d.lib;opencv_features2d300d.lib;opencv_flann300d.lib;opencv_hal300d.lib;opencv_highgui300d.lib;opencv_imgcodecs300d.lib;opencv_imgproc300d.lib;opencv_ml300d.lib;opencv_objdetect300d.lib;opencv_photo300d.lib;opencv_shape300d.lib;opencv_stitching300d.lib;opencv_superres300d.lib;opencv_video300d.lib;opencv_videoio300d.lib;opencv_videostab300d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+        %(Command)
+        cmd.exe /c "IF NOT EXIST "$(BinDir)\opencv_core300d.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\bin\Debug\*.dll" "$(BinDir)" )"
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup  Condition="'$(Configuration)'=='Release'">
+    <Link>
+      <AdditionalDependencies>opencv_calib3d300.lib;opencv_core300.lib;opencv_features2d300.lib;opencv_flann300.lib;opencv_hal300.lib;opencv_highgui300.lib;opencv_imgcodecs300.lib;opencv_imgproc300.lib;opencv_ml300.lib;opencv_objdetect300.lib;opencv_photo300.lib;opencv_shape300.lib;opencv_stitching300.lib;opencv_superres300.lib;opencv_video300.lib;opencv_videoio300.lib;opencv_videostab300.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+        %(Command)
+        cmd.exe /c "IF NOT EXIST "$(BinDir)\opencv_core300.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\bin\Release\*.dll" "$(BinDir)" )"
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+
+
+  <ItemGroup />
+
+
+
+</Project>
