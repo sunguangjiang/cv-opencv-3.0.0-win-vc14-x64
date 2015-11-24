@@ -20,10 +20,10 @@
 
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc14-x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc14-x64\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
 
@@ -34,7 +34,7 @@
     <PostBuildEvent>
       <Command>
         %(Command)
-        cmd.exe /c "IF NOT EXIST "$(BinDir)\opencv_core300d.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\bin\Debug\*.dll" "$(BinDir)" )"
+        cmd.exe /c "IF NOT EXIST "$(BinDir)opencv_core300d.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc14-x64\bin\Debug\*.dll" "$(BinDir)" )"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -46,7 +46,7 @@
     <PostBuildEvent>
       <Command>
         %(Command)
-        cmd.exe /c "IF NOT EXIST "$(BinDir)\opencv_core300.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc10-x64\bin\Release\*.dll" "$(BinDir)" )"
+        cmd.exe /c "IF NOT EXIST "$(BinDir)opencv_core300.dll" ( ECHO copying OpenCV DLLs ... &amp;&amp; ( IF NOT EXIST "$(BinDir)" MKDIR "$(BinDir)" ) &amp;&amp; COPY /y "$(ProjectDir)..\..\..\cv-opencv-3.0.0-win-vc14-x64\bin\Release\*.dll" "$(BinDir)" )"
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
